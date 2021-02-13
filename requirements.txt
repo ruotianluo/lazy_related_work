@@ -1,0 +1,3 @@
+scholarly
+arxiv
+google
