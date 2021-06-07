@@ -38,7 +38,7 @@ def get_arxiv_id(paper_title: str, feel_lucky: bool = True):
     arxiv_id = re.findall(r'\d+\.\d+', arxiv_url)[0]
 
     # papers = arxiv.query(query=paper_title)
-    paper = arxiv.query(id_list=[arxiv_id])[0]
+    paper = arxiv.Search(id_list=[arxiv_id])[0]
     if not feel_lucky:
         print(paper_title)
         print(paper['title'])
@@ -57,7 +57,7 @@ def get_accurate_name_from_arxiv(paper_title: str):
     arxiv_url = list(search(f'{paper_title} site:arxiv.org', stop=1))[0]
     arxiv_id = re.findall(r'\d+\.\d+', arxiv_url)[0]
 
-    paper = arxiv.query(id_list=[arxiv_id])[0]
+    paper = arxiv.Search(id_list=[arxiv_id])[0]
     return paper['title']
 
 
